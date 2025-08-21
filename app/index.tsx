@@ -1,6 +1,7 @@
 import "@/global.css";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import React from "react";
 import { Image, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
@@ -9,6 +10,7 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 const Index = () => {
+  const router = useRouter();
   return (
     <View className="flex-1  flex justify-end">
       <StatusBar barStyle={"light-content"} />
@@ -48,7 +50,12 @@ const Index = () => {
         </Animated.View>
 
         <Animated.View entering={FadeInDown.duration(1500).springify()}>
-          <TouchableOpacity className="flex-row items-center justify-center bg-red-600 rounded-full px-6 py-3 mx-4">
+          <TouchableOpacity
+            className="flex-row items-center justify-center bg-red-600 rounded-full px-6 py-3 mx-4"
+            onPress={() => {
+              router.push("/home");
+            }}
+          >
             <Text
               className="text-white font-semibold"
               style={{ fontSize: hp(2) }}
