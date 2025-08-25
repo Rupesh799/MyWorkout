@@ -1,6 +1,7 @@
 import { sliderImage } from "@/constants/sliderData";
+import { useRouter } from "expo-router";
 import React from "react";
-import { Image, ImageSourcePropType, View } from "react-native";
+import { Image, ImageSourcePropType, Pressable, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import {
   heightPercentageToDP as hp,
@@ -37,20 +38,29 @@ const ItemCard = ({ item }: ItemCardProps) => {
   );
 };
 
+// const router = useRouter()
+
 const ImageCarousel = () => {
+  const router = useRouter();
   return (
-    <View style={{ height: hp(30) }}>
+    <Pressable
+      style={{ height: hp(30) }}
+      onPress={() => {
+        router.push("/workout");
+      }}
+    >
       <Carousel
         loop
         width={wp("100%")}
         height={hp("30%")}
         autoPlay={true}
+        // hasParallaxImages={true}
         data={sliderImage}
         scrollAnimationDuration={1000}
         autoPlayInterval={3000}
         renderItem={({ item, index }) => <ItemCard item={item} index={index} />}
       />
-    </View>
+    </Pressable>
   );
 };
 
