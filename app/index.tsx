@@ -5,10 +5,7 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { Image, StatusBar, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 const Index = () => {
   const router = useRouter();
   return (
@@ -20,20 +17,20 @@ const Index = () => {
       />
       <LinearGradient
         colors={["transparent", "rgba(0,0,0,0.8)"]}
-        style={{
-          width: wp(100),
-          height: hp(70),
-        }}
+        // style={{
+        //   width: wp(100),
+        //   height: hp(70),
+        // }}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 0.8 }}
-        className="flex justify-end pb-12 space-y-8"
+        className="flex justify-end pb-12 space-y-8 "
       >
         <Animated.View
           entering={FadeInUp.duration(1000).springify()}
-          className="flex items-center  py-10"
+          className="flex items-center py-10"
         >
           <Text
-            className="text-white  font-semibold tracking-wide"
+            className="text-white  font-semibold tracking-wide text-center"
             style={{ fontSize: hp(4) }}
           >
             Best Workout ,
