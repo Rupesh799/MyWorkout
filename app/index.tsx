@@ -3,7 +3,14 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, StatusBar, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 const Index = () => {
@@ -46,7 +53,10 @@ const Index = () => {
           </Text>
         </Animated.View>
 
-        <Animated.View entering={FadeInDown.duration(1500).springify()}>
+        <Animated.View
+          entering={FadeInDown.duration(1500).springify()}
+          className={`${Platform.OS === "ios" ? "mb-12" : ""}`}
+        >
           <TouchableOpacity
             className="flex-row items-center justify-center bg-red-600 rounded-full px-6 py-3 mx-4"
             onPress={() => {

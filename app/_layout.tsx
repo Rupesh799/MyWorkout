@@ -8,7 +8,11 @@ const _layout = () => {
       <Stack.Screen name="home" options={{ headerShown: false }} />
       <Stack.Screen
         name="workout"
-        options={{ headerShown: false, presentation: "fullScreenModal" }}
+        options={{ headerShown: false, presentation: `modal` }}
+      />
+      <Stack.Screen
+        name="screens/excercises/page"
+        options={{ headerShown: false, presentation: "modal" }}
       />
     </Stack>
   );
