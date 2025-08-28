@@ -1,9 +1,6 @@
 import axios from "axios";
 
 const baseUrl = process.env.EXPO_PUBLIC_API_URL;
-console.log(baseUrl);
-
-console.log(process.env.EXPO_PUBLIC_RAPIDAPI_KEY);
 
 export const fetchApi = async (url: string, params: Record<string, any>) => {
   try {
@@ -28,4 +25,19 @@ export const getBodyPartWorkouts = async (bodyPart: string) => {
   const data = await fetchApi(`${baseUrl}/exercises/bodyPart/${bodyPart}`, {});
 
   return data;
+};
+
+export const getWorkoutGIf = async (id: string, resolution: string) => {
+  // According to docs, /image streams a GIF. Build a direct URL for use in <Image>.
+  const apiKey = process.env.EXPO_PUBLIC_RAPIDAPI_KEY;
+  if (!baseUrl || !apiKey) return "";
+
+  // Ensure no trailing slash and remove accidental surrounding quotes
+  const urlBase = String(baseUrl).replace(/^"|"$/g, "").replace(/\/+$/g, "");
+  const url = `${urlBase}/image?exerciseId=${encodeURIComponent(
+    id
+  )}&resolution=${encodeURIComponent(resolution)}&rapidapi-key=${encodeURIComponent(
+    apiKey as string
+  )}`;
+  return url;
 };
