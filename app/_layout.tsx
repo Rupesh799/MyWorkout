@@ -14,6 +14,10 @@ const _layout = () => {
         name="screens/excercises/page"
         options={{ headerShown: false, presentation: "modal" }}
       />
+      <Stack.Screen
+        name="screens/excercises/[details]/page"
+        options={{ headerShown: false, presentation: "modal" }}
+      />
     </Stack>
   );
 };

@@ -1,8 +1,10 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   Dimensions,
   FlatList,
+  Image,
   Text,
   TouchableOpacity,
   View,
@@ -10,21 +12,27 @@ import {
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = width / 2 - 24;
-const WorkoutList = ({ data }: any) => {
+
+const WorkoutList = ({ data, images, headerComponent }: any) => {
   return (
     <View className="flex-1 bg-white px-4">
       <FlatList
-        keyExtractor={(item) => item.name}
+        keyExtractor={(item) => item.id.toString()}
         data={data}
         numColumns={2}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={headerComponent}
         contentContainerStyle={{ paddingBottom: 80, paddingTop: 20 }}
         columnWrapperStyle={{
           justifyContent: "space-between",
           marginBottom: 16,
         }}
         renderItem={({ item, index }) => (
-          <ExcerciseCard item={item} index={index} />
+          <ExcerciseCard
+            item={item}
+            index={index}
+            image={images?.[item.id]} // pass correct gif
+          />
         )}
       />
     </View>
@@ -33,27 +41,35 @@ const WorkoutList = ({ data }: any) => {
 
 export default WorkoutList;
 
-const ExcerciseCard = ({ item }: { item: any; index: number }) => {
-  //   const router = useRouter();
+const ExcerciseCard = ({
+  item,
+  index,
+  image,
+}: {
+  item: any;
+  index: number;
+  image?: string;
+}) => {
+  const router = useRouter();
 
-  console.log(item);
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       className="rounded-2xl overflow-hidden shadow-md"
       style={{ width: CARD_WIDTH, height: 200 }}
-      //   onPress={() => {
-      //     router.push({
-      //       pathname: "/screens/excercises/page",
-      //       params: { item: JSON.stringify(item) },
-      //     });
-      //   }}
+      onPress={() => {
+        const pathname = `/screens/excercises/[details]/page`;
+        router.push({
+          pathname,
+          params: item,
+        });
+      }}
     >
-      {/* <Image
-        source={item.image}
+      <Image
+        source={image ? { uri: image } : item.image}
         className="w-full h-full rounded-2xl"
         resizeMode="cover"
-      /> */}
+      />
 
       {/* Bottom Gradient */}
       <LinearGradient
