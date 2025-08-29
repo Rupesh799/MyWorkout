@@ -14,6 +14,7 @@ const { width } = Dimensions.get("window");
 const CARD_WIDTH = width / 2 - 24;
 
 const WorkoutList = ({ data, images, headerComponent }: any) => {
+  // console.log()
   return (
     <View className="flex-1 bg-white px-4">
       <FlatList
