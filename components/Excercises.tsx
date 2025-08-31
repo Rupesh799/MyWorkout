@@ -56,7 +56,6 @@ export default Excercises;
 const ExcerciseCard = ({ item }: { item: any; index: number }) => {
   const router = useRouter();
 
-  console.log(item);
   return (
     <TouchableOpacity
       activeOpacity={0.8}

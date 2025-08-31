@@ -25,7 +25,7 @@ const ExcercisesListPage = () => {
       await Promise.all(
         data.map(async (ex: any) => {
           const gifUrl = await getWorkoutGIf(ex.id, "1080");
-          console.log(gifUrl);
+          // console.log(gifUrl);
           gifs[ex.id] = gifUrl; // already a url
         })
       );
