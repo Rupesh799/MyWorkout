@@ -46,8 +46,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "e2231b3d-6f16-43fa-a2fc-9951dda1a14c"
+        "projectId": "a8942a24-8661-4909-b21a-9b596da9bfd7"
       }
-    }
+    },
+    "owner": "rupesh2000"
   }
 }
