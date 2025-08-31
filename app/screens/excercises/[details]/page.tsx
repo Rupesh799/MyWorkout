@@ -60,8 +60,8 @@ const DetailsPage = () => {
     label: string;
     value: string;
   }) => (
-    <View className="bg-gray-50 rounded-xl p-4 flex-row items-center gap-3 flex-1">
-      <View className="bg-red-100 p-2 rounded-lg">
+    <View className="bg-gray-50 rounded-xl p-4 flex-row items-start gap-3 flex-1">
+      <View className="bg-red-100 p-2 rounded-lg ">
         <MaterialIcons name={icon as any} size={20} color="red" />
       </View>
       <View className="flex-1">
@@ -225,7 +225,7 @@ const DetailsPage = () => {
                         .map((instruction, index) => (
                           <View
                             key={index}
-                            className="flex-row items-start gap-3"
+                            className="flex-row items-center gap-4"
                           >
                             {/* <View className="bg-red-500 w-2 h-2 rounded-full mt-2 flex-shrink-0" /> */}
                             <MaterialCommunityIcons
