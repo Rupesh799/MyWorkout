@@ -12,7 +12,6 @@ import {
   View,
 } from "react-native";
 import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 const Index = () => {
   const router = useRouter();
   return (
@@ -36,16 +35,10 @@ const Index = () => {
           entering={FadeInUp.duration(1000).springify()}
           className="flex items-center py-10"
         >
-          <Text
-            className="text-white  font-semibold tracking-wide text-center"
-            style={{ fontSize: hp(4) }}
-          >
+          <Text className="text-white  font-semibold tracking-wide text-center text-2xl">
             Best Workout ,
             <Text>
-              <Text
-                className="text-red-600 text-lg font-semibold"
-                style={{ fontSize: hp(4) }}
-              >
+              <Text className="text-red-600 font-semibold text-2xl">
                 {" "}
                 Best You
               </Text>
@@ -63,10 +56,7 @@ const Index = () => {
               router.push("/home");
             }}
           >
-            <Text
-              className="text-white font-semibold"
-              style={{ fontSize: hp(2) }}
-            >
+            <Text className="text-white font-semibold text-2xl">
               Get Started
             </Text>
             <MaterialIcons name="arrow-forward" size={24} color="white" />

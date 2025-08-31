@@ -3,7 +3,6 @@ import ImageCarousel from "@/components/ImageCarousel";
 import React from "react";
 import { Image, StatusBar, Text, View } from "react-native";
 import Animated, { FadeInLeft, FadeInRight } from "react-native-reanimated";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
@@ -18,15 +17,12 @@ const HomeScreen = () => {
           className="space-y-6 pt-4"
         >
           <Text
-            className="uppercase font-bold tracking-wider text-slate-700"
-            style={{ fontSize: hp(4.5) }}
+            className="uppercase font-extrabold tracking-wider text-slate-700 text-4xl"
+            // style={{ fontSize: hp(4.5) }}
           >
             ready to
           </Text>
-          <Text
-            className=" uppercase tracking-wider text-red-500 font-bold"
-            style={{ fontSize: hp(4.5) }}
-          >
+          <Text className=" uppercase tracking-wider text-red-500 font-extrabold text-4xl">
             workout
           </Text>
         </Animated.View>

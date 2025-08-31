@@ -11,12 +11,13 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@expo/config-plugins": "~10.1.2",
+    "@expo/prebuild-config": "~9.0.11",
     "@expo/vector-icons": "^14.1.0",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
     "axios": "^1.11.0",
-    "eas-cli": "^16.18.0",
     "expo": "~53.0.22",
     "expo-blur": "~14.1.5",
     "expo-constants": "~17.1.7",
@@ -38,7 +39,6 @@
     "react-native-gesture-handler": "~2.24.0",
     "react-native-reanimated": "~3.17.5",
     "react-native-reanimated-carousel": "^4.0.3",
-    "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-web": "~0.20.0",

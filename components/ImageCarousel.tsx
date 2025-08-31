@@ -1,12 +1,16 @@
 import { sliderImage } from "@/constants/sliderData";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, ImageSourcePropType, Pressable, View } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
 import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
+  Dimensions,
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  View,
+} from "react-native";
+import Carousel from "react-native-reanimated-carousel";
+
+const { width, height } = Dimensions.get("window");
 
 interface ItemCardProps {
   item: ImageSourcePropType;
@@ -16,45 +20,35 @@ interface ItemCardProps {
 const ItemCard = ({ item }: ItemCardProps) => {
   return (
     <View
+      className="rounded-2xl overflow-hidden justify-center items-center"
       style={{
-        width: wp("100%") - 10,
-        height: hp("25%"),
-        borderRadius: 30,
-        overflow: "hidden",
-        justifyContent: "center",
-        alignItems: "center",
+        width: width - 10,
+        height: height * 0.25, // 25% of screen height
       }}
     >
       <Image
         source={item}
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: 30,
-        }}
+        className="w-full h-full rounded-2xl"
         resizeMode="cover"
       />
     </View>
   );
 };
 
-// const router = useRouter()
-
 const ImageCarousel = () => {
   const router = useRouter();
   return (
     <Pressable
-      style={{ height: hp(30) }}
+      style={{ height: height * 0.3 }} // 30% of screen height
       onPress={() => {
         router.push("/workout");
       }}
     >
       <Carousel
         loop
-        width={wp("100%")}
-        height={hp("30%")}
-        autoPlay={true}
-        // hasParallaxImages={true}
+        width={width}
+        height={height * 0.3}
+        autoPlay
         data={sliderImage}
         scrollAnimationDuration={1000}
         autoPlayInterval={3000}
